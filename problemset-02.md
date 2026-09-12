@@ -25,7 +25,7 @@ to a file named `answers.pdf`.
       **Lower Bound**  
 
       Suppose n is even, and we look at the greater half of the factorial, like this:  
-      $\frac{n}{2}, \frac{n}{2} + 1, \frac{n}{2} + 2, \ldots n$
+      $\frac{n}{2} + 1, \frac{n}{2} + 2, \frac{n}{2} + 3, \ldots n$
       There would be $\frac{n}{2}$ of these factors, each of which is at least $\frac{n}{2}$  
       Therefore we know that $n! \geq {(\frac{n}{2})}^{n/2}$  
       So:  
@@ -33,8 +33,10 @@ to a file named `answers.pdf`.
       $\log n! \geq \frac{n}{2} \cdot \log (\frac{n}{2})$  
       $\log n! \geq (\frac{1}{2} \cdot n) \cdot \log (\frac{n}{2})$   
       $\log n! \geq (\frac{1}{2} \cdot n) \cdot (\log n - \log 2)$  
-      $\log n! \geq ((\frac{1}{2} \cdot n) \cdot \log n) - ((\frac{1}{2} \cdot n) \cdot \log 2)$  
-      Cancelling out the contants gives us: $\log n! \geq n \log n - n$   
+      $\log n! \geq (\frac{1}{2} \cdot n) \cdot (\log n) \cdot ( 1 - \frac{\log 2}{\log n})$  
+      $\frac{\log 2}{\log n} \rightarrow 0$ as $n \rightarrow \infin$   
+      $\log n! \geq (\frac{1}{2} \cdot n) \cdot (\log n) \cdot ( 1 - 0)$  
+      $\log n! \geq (\frac{1}{2}) \cdot (n \cdot (\log n))$  
       and so $\log n! \in \Omega(n \log n)$  
 
       **Answer** 
