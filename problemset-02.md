@@ -1,6 +1,6 @@
 # CMPS 6610 Problem Set 02
 
-**Name:**_________________________
+**Name:** <u>Rob Hartley</u>______________
 
 In this assignment we'll work on applying the methods we've learned to
 analyze recurrences, and also see their behavior in practice. As with
@@ -12,12 +12,35 @@ to a file named `answers.pdf`.
 
 1. Prove that $\log n! \in \Theta(n \log n).$
 
-.  
-.  
-.  
-.  
-.  
- 
+     **Upper Bound**  
+
+      Every factor in $n! \leq n$  
+      $n! = (1 \cdot 2 \cdot 3 \ldots \cdot n)$  
+      So:  
+      $n! \leq n^n$  
+      $\log n! \leq \log(n^n)$  
+      $\log n! \leq n\log n$  
+      $\log n! \in O(n \log n)$  
+
+      **Lower Bound**  
+
+      Suppose n is even, and we look at the greater half of the factorial, like this:  
+      $\frac{n}{2}, \frac{n}{2} + 1, \frac{n}{2} + 2, \ldots n$
+      There would be $\frac{n}{2}$ of these factors, each of which is at least $\frac{n}{2}$  
+      Therefore we know that $n! \geq {(\frac{n}{2})}^{n/2}$  
+      So:  
+      $\log n! \geq \log {(\frac{n}{2})}^{n/2}$  
+      $\log n! \geq \frac{n}{2} \cdot \log (\frac{n}{2})$  
+      $\log n! \geq (\frac{1}{2} \cdot n) \cdot \log (\frac{n}{2})$   
+      $\log n! \geq (\frac{1}{2} \cdot n) \cdot (\log n - \log 2)$  
+      $\log n! \geq ((\frac{1}{2} \cdot n) \cdot \log n) - ((\frac{1}{2} \cdot n) \cdot \log 2)$  
+      Cancelling out the contants gives us: $\log n! \geq n \log n - n$   
+      and so $\log n! \in \Omega(n \log n)$  
+
+      **Answer** 
+      
+      Since $\log n! \in O(n \log n)$ and $\log n! \in \Omega(n \log n)$  
+      $\log n! \in \Theta(n \log n)$
  
 2. Derive asymptotic upper bounds for each recurrence below, using a
    method of your choice.
