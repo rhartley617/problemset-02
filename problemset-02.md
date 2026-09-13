@@ -47,12 +47,37 @@ to a file named `answers.pdf`.
 2. Derive asymptotic upper bounds for each recurrence below, using a
    method of your choice.
    
-  * $T(n)=2T(n/6)+1$
-.  
-.  
-.  
-.  
-.  
+  * $T(n)=2T(n/6)+1$  
+
+    $T(\frac{n}{6}) = 2T(\frac{n}{36}) + 1$
+
+    Level 1  
+    $T(n) = 2 \cdot (2T(\frac{n}{36}) + 1) + 1$  
+    $T(n) = 4T(\frac{n}{36}) + 3$  
+
+    $T(\frac{n}{36}) = 2T(\frac{n}{216}) + 1$
+
+    Level 2  
+    $T(n) = 4 \cdot (2T(\frac{n}{216}) + 1) + 3$  
+    $T(n) = 8T(\frac{n}{216}) + 7$  
+
+    Generalized  
+    $T(n) = 2^k T(\frac{n}{6^k}) + (2^k - 1)$
+
+    Recursion Depth  
+    $\frac{n}{6^k} = 1$  
+    $n = 6^k$  
+    $\log_6 n = k$  
+
+    Substitute  
+    $T(n) = 2^{\log_6 n} T(\frac{n}{6^{\log_6 n}}) + (2^{\log_6 n} - 1)$  
+    $T(n) = n^{\log_6 2} T(1) + n^{\log_6 2} - 1$  
+
+    $\boxed{T(n) \in O(n^{\log_6 2})}$  
+
+
+
+
   * $T(n)=6T(n/4)+n$
 .  
 .  
