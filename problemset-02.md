@@ -78,8 +78,46 @@ to a file named `answers.pdf`.
 
 
 
-  * $T(n)=6T(n/4)+n$
-.  
+  * $T(n)=6T(n/4)+n$  
+
+    $T(\frac{n}{4}) = 6T(\frac{n}{16}) + \frac{n}{4}$  
+
+    Level 1  
+    $T(n) = 6 \cdot (6T(\frac{n}{16}) + \frac{n}{4}) + n$  
+    $T(n) = 36T(\frac{n}{16}) + n + \frac{6n}{4}$  
+
+    $T(\frac{n}{16}) = 6T(\frac{n}{64}) + \frac{n}{16}$  
+
+    Level 2  
+    $T(n) = 36 \cdot (6T(\frac{n}{64}) + \frac{n}{16}) + n + \frac{6n}{4}$  
+    $T(n) = 216T(\frac{n}{64}) + n + \frac{6n}{4} + \frac{36n}{16}$  
+
+    Generalized Equation  
+    $T(n) = 6^k T(\frac{n}{4^k}) + n \cdot \sum_{i=0}^{k-1}(\frac{6}{4})^i$  
+
+    Geometric Series  
+    $ \sum_{i=0}^n \alpha^i  = \frac{\alpha}{\alpha - 1}\cdot\alpha^n$  
+    $\sum_{i=0}^{k-1}(\frac{6}{4})^i = (\frac{\frac{6}{4}}{\frac{6}{4} - 1}) \cdot (\frac{6}{4})^{k - 1}$  
+    $\sum_{i=0}^{k-1}(\frac{6}{4})^i = 3 \cdot (\frac{6}{4})^{k - 1}$  
+
+    Recursion Depth  
+    $\frac{n}{4^k} = 1$  
+    $n = 4^k$  
+    $k = \log_4 n$  
+
+    Substitute into Generalized Equation  
+    $T(n) \leq 6^k T(\frac{n}{4^k}) + 3n \cdot (\frac{6}{4})^{k - 1}$  
+    $T(n) \leq 6^{\log_4 n} T(\frac{n}{4^{\log_4 n}}) + 3n \cdot (\frac{6}{4})^{\log_4 n - 1}$  
+    $T(n) \leq n^{\log_4 6} T(1) + 3n \cdot \frac{(\frac{6}{4})^{\log_4 n}}{\frac{6}{4}}$  
+    $T(n) \leq n^{\log_4 6} T(1) + 2n \cdot n^{\log_4 \frac{6}{4}}$  
+    $T(n) \leq n^{\log_4 6} T(1) + 2n^{(1 +\log_4 \frac{6}{4})}$  
+    $T(n) \leq n^{\log_4 6} T(1) + 2n^{(\log_4 4 +\log_4 \frac{6}{4})}$  
+    $T(n) \leq n^{\log_4 6} T(1) + 2n^{(\log_4 (4 \cdot \frac{6}{4}))}$  
+    $T(n) \leq n^{\log_4 6} T(1) + 2n^{\log_4 6}$  
+    $T(n) \leq (n^{\log_4 6}) \cdot (T(1) + 2)$
+
+    $\boxed{T(n) \in O(n^{\log_4 6})}$  
+
 .  
 .  
 .  
