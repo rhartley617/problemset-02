@@ -43,7 +43,8 @@ to a file named `answers.pdf`.
       
       Since $\log n! \in O(n \log n)$ and $\log n! \in \Omega(n \log n)$  
       $\log n! \in \Theta(n \log n)$
- 
+     <br>  
+
 2. Derive asymptotic upper bounds for each recurrence below, using a
    method of your choice.
    
@@ -74,7 +75,7 @@ to a file named `answers.pdf`.
     $T(n) = n^{\log_6 2} T(1) + n^{\log_6 2} - 1$  
 
     $\boxed{T(n) \in O(n^{\log_6 2})}$  
-
+    <br>
 
 
 
@@ -117,6 +118,7 @@ to a file named `answers.pdf`.
     $T(n) \leq (n^{\log_4 6}) \cdot (T(1) + 2)$
 
     $\boxed{T(n) \in O(n^{\log_4 6})}$  
+    <br>
 
   * $T(n)=7T(n/7)+n$  
   Brick Method  
@@ -125,13 +127,10 @@ to a file named `answers.pdf`.
   $a = b^d$ ~ $ balanced: \ \  \Theta(n^d\log n)$  
     
      $\boxed{T(n) \in O(n\log n)}$  
+    <br>
 
-.  
-.  
-.  
-.  
-.  
-  * $T(n)=9T(n/4)+n^2$
+  * $T(n)=9T(n/4)+n^2$  
+  
 .  
 .  
 .  
