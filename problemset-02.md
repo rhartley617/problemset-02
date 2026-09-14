@@ -130,12 +130,14 @@ to a file named `answers.pdf`.
     <br>
 
   * $T(n)=9T(n/4)+n^2$  
-  
-.  
-.  
-.  
-.  
-.  
+  Brick Method  
+  $T(n)=aT\left(\frac{n}{b}\right)+n^d$  
+  $a = 9, b = 4, d = 2$  
+  $a < b^d$ ~ $ root \  dominated: \ \  \Theta(n^d)$ 
+
+    $\boxed{T(n) \in O(n^2)}$  
+  <br>
+
   * $T(n)=4T(n/2)+n^3$
 .  
 .  
