@@ -212,9 +212,8 @@ to a file named `answers.pdf`.
     $\log n \cdot c$
 
     Substitute into Generalized Equation 2  
-    $T(n) \leq n^{\log_{25}49}T(1) + n^{3/2} \cdot \log n \cdot c$  
-    $T(n) \leq c \cdot n^{\log_{25}49} + c \cdot n^{3/2} \cdot \log n$  
-    $T(n) \leq n^{\log_{25}49} + n^{3/2} \cdot \log n$  
+    $T(n) \leq n^{\log_{25}49} \cdot T(1) + n^{3/2} \cdot \log n \cdot \frac{125}{76}$  
+    $T(n) \in O(n^{\log_{25}49} + n^{3/2} \cdot \log n)$  
     $\log_{25}49 \approx 1.21 < 3/2$  
 
     $\boxed{T(n) \in O(n^{3/2}\log n)}$
