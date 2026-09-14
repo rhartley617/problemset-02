@@ -118,11 +118,14 @@ to a file named `answers.pdf`.
 
     $\boxed{T(n) \in O(n^{\log_4 6})}$  
 
-.  
-.  
-.  
-.  
-  * $T(n)=7T(n/7)+n$
+  * $T(n)=7T(n/7)+n$  
+  Brick Method  
+  $T(n)=aT\left(\frac{n}{b}\right)+n^d$  
+  $a = 7, b =7, d = 1$  
+  $a = b^d$ ~ $ balanced: \ \  \Theta(n^d\log n)$  
+    
+     $\boxed{T(n) \in O(n\log n)}$  
+
 .  
 .  
 .  
