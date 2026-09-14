@@ -96,9 +96,9 @@ to a file named `answers.pdf`.
     $T(n) = 6^k T(\frac{n}{4^k}) + n \cdot \sum_{i=0}^{k-1}(\frac{6}{4})^i$  
 
     Geometric Series  
-    $ \sum_{i=0}^n \alpha^i  = \frac{\alpha}{\alpha - 1}\cdot\alpha^n$  
-    $\sum_{i=0}^{k-1}(\frac{6}{4})^i = (\frac{\frac{6}{4}}{\frac{6}{4} - 1}) \cdot (\frac{6}{4})^{k - 1}$  
-    $\sum_{i=0}^{k-1}(\frac{6}{4})^i = 3 \cdot (\frac{6}{4})^{k - 1}$  
+    $ \sum_{i=0}^n \alpha^i  \leq \frac{\alpha}{\alpha - 1}\cdot\alpha^n$  
+    $\sum_{i=0}^{k-1}(\frac{6}{4})^i \leq (\frac{\frac{6}{4}}{\frac{6}{4} - 1}) \cdot (\frac{6}{4})^{k - 1}$  
+    $\sum_{i=0}^{k-1}(\frac{6}{4})^i \leq 3 \cdot (\frac{6}{4})^{k - 1}$  
 
     Recursion Depth  
     $\frac{n}{4^k} = 1$  
