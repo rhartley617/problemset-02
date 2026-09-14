@@ -97,7 +97,7 @@ to a file named `answers.pdf`.
     $T(n) = 6^k T(\frac{n}{4^k}) + n \cdot \sum_{i=0}^{k-1}(\frac{6}{4})^i$  
 
     Geometric Series  
-    $ \sum_{i=0}^n \alpha^i  \leq \frac{\alpha}{\alpha - 1}\cdot\alpha^n$  
+     $\alpha > 1$ so  $ \sum_{i=0}^n \alpha^i  \leq \frac{\alpha}{\alpha - 1}\cdot\alpha^n$  
     $\sum_{i=0}^{k-1}(\frac{6}{4})^i \leq (\frac{\frac{6}{4}}{\frac{6}{4} - 1}) \cdot (\frac{6}{4})^{k - 1}$  
     $\sum_{i=0}^{k-1}(\frac{6}{4})^i \leq 3 \cdot (\frac{6}{4})^{k - 1}$  
 
@@ -138,12 +138,44 @@ to a file named `answers.pdf`.
     $\boxed{T(n) \in O(n^2)}$  
   <br>
 
-  * $T(n)=4T(n/2)+n^3$
-.  
-.  
-.  
-.  
-.  
+  * $T(n)=4T(n/2)+n^3$  
+
+    $T(\frac{n}{2}) = 4T(\frac{n}{4}) + (\frac{n}{2})^3$  
+    
+    Level 1  
+    $T(n) = 4 \cdot (4T(\frac{n}{4}) +  (\frac{n}{2})^3) + n^3$  
+    $T(n) = 16T(\frac{n}{4}) +  4 \cdot (\frac{n}{2})^3 + n^3$  
+
+    $T(\frac{n}{4}) = 4T(\frac{n}{8}) + (\frac{n}{4})^3$  
+
+    Level 2  
+    $T(n) = 16 \cdot (4T(\frac{n}{8}) + (\frac{n}{4})^3) +  4 \cdot (\frac{n}{2})^3 + n^3$  
+    $T(n) = 64T(\frac{n}{8}) + 16 \cdot (\frac{n}{4})^3 +  4 \cdot (\frac{n}{2})^3 + n^3$  
+
+    $T(n) = 64T(\frac{n}{8}) + \frac{1}{4}n^3 +  \frac{1}{2}n^3 + n^3$  
+
+    Generalized Equation  
+    $T(n) = 4^kT(\frac{n}{2^k}) + n^3 \cdot \sum_{i=0}^{k-1}(\frac{1}{2})^i$  
+
+    Geometric Series  
+    $\alpha < 1$ so $\sum_{i=0}^{\infin} \alpha^i  < \frac{\alpha}{1 -\alpha}$  
+    $\sum_{i=0}^{k-1}(\frac{1}{2})^i < \frac{\frac{1}{2}}{1 - \frac{1}{2}}$  
+    $\sum_{i=0}^{k-1}(\frac{1}{2})^i < 1$  
+
+    Recursion Depth  
+    $\frac{n}{2^k} = 1$  
+    $n = 2^k$  
+    $k = \lg n$  
+
+    Substitute into Generalized Equation  
+    $T(n) < 4^kT(\frac{n}{2^k}) + n^3 \cdot 1$  
+    $T(n) < 4^{\lg n}T(\frac{n}{2^{\lg n}}) + n^3$  
+    $T(n) < n^{\lg 4}T(1) + n^3$  
+    $T(n) < n^2 + n^3$  
+
+    $\boxed{T(n) \in O(n^3)}$  
+    <br>  
+
   * $T(n)=49T(n/25)+n^{3/2}\log n$
 .  
 .  
