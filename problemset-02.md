@@ -115,7 +115,7 @@ to a file named `answers.pdf`.
     $T(n) \leq n^{\log_4 6} T(1) + 2n^{(\log_4 4 +\log_4 \frac{6}{4})}$  
     $T(n) \leq n^{\log_4 6} T(1) + 2n^{(\log_4 (4 \cdot \frac{6}{4}))}$  
     $T(n) \leq n^{\log_4 6} T(1) + 2n^{\log_4 6}$  
-    $T(n) \leq (n^{\log_4 6}) \cdot (T(1) + 2)$
+    $T(n) \leq (n^{\log_4 6}) \cdot (c + 2)$
 
     $\boxed{T(n) \in O(n^{\log_4 6})}$  
     <br>
@@ -158,9 +158,9 @@ to a file named `answers.pdf`.
     $T(n) = 4^kT(\frac{n}{2^k}) + n^3 \cdot \sum_{i=0}^{k-1}(\frac{1}{2})^i$  
 
     Geometric Series  
-    $\alpha < 1$ so $\sum_{i=0}^{\infin} \alpha^i  < \frac{\alpha}{1 -\alpha}$  
+    $\alpha < 1$ so $\sum_{i=0}^{\infin} \alpha^i  = \frac{\alpha}{1 -\alpha}$  
     $\sum_{i=0}^{k-1}(\frac{1}{2})^i < \frac{\frac{1}{2}}{1 - \frac{1}{2}}$  
-    $\sum_{i=0}^{k-1}(\frac{1}{2})^i < 1$  
+    $\sum_{i=0}^{k-1}(\frac{1}{2})^i < 2$  
 
     Recursion Depth  
     $\frac{n}{2^k} = 1$  
@@ -168,10 +168,10 @@ to a file named `answers.pdf`.
     $k = \lg n$  
 
     Substitute into Generalized Equation  
-    $T(n) < 4^kT(\frac{n}{2^k}) + n^3 \cdot 1$  
-    $T(n) < 4^{\lg n}T(\frac{n}{2^{\lg n}}) + n^3$  
-    $T(n) < n^{\lg 4}T(1) + n^3$  
-    $T(n) < n^2 + n^3$  
+    $T(n) \leq 4^kT(\frac{n}{2^k}) + n^3 \cdot 2$  
+    $T(n) \leq 4^{\lg n}T(\frac{n}{2^{\lg n}}) + 2n^3$  
+    $T(n) \leq n^{\lg 4}T(1) + 2n^3$  
+    $T(n) \leq cn^2 + 2n^3$  
 
     $\boxed{T(n) \in O(n^3)}$  
     <br>  
