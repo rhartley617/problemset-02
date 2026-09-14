@@ -176,7 +176,23 @@ to a file named `answers.pdf`.
     $\boxed{T(n) \in O(n^3)}$  
     <br>  
 
-  * $T(n)=49T(n/25)+n^{3/2}\log n$
+  * $T(n)=49T(n/25)+n^{3/2}\log n$  
+
+    $T(\frac{n}{25}) = 49T(\frac{n}{25^2}) + (\frac{n}{25})^{3/2}\log (\frac{n}{25})$  
+
+    Level 1  
+    $T(n) = 49 \cdot (49T(\frac{n}{25^2}) + (\frac{n}{25})^{3/2}\log (\frac{n}{25})) + n^{3/2}\log n$  
+    $T(n) = 49^2T(\frac{n}{25^2}) + 49(\frac{n}{25})^{3/2}\log (\frac{n}{25}) + n^{3/2}\log n$  
+
+    $T(\frac{n}{25^2}) = 49T(\frac{n}{25^3}) + (\frac{n}{25^2})^{3/2}\log (\frac{n}{25^2})$  
+
+    Level 2  
+    $T(n) = 49^2 \cdot (49T(\frac{n}{25^3}) + (\frac{n}{25^2})^{3/2}\log (\frac{n}{25^2})) + 49(\frac{n}{25})^{3/2}\log (\frac{n}{25}) + n^{3/2}\log n$  
+    $T(n) = 49^3T(\frac{n}{25^3}) + 49^2(\frac{n}{25^2})^{3/2}\log (\frac{n}{25^2}) + 49(\frac{n}{25})^{3/2}\log (\frac{n}{25}) + n^{3/2}\log n$  
+
+    Generalized Equation  
+
+
 .  
 .  
 .  
