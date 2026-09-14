@@ -158,8 +158,8 @@ to a file named `answers.pdf`.
     $T(n) = 4^kT(\frac{n}{2^k}) + n^3 \cdot \sum_{i=0}^{k-1}(\frac{1}{2})^i$  
 
     Geometric Series  
-    $\alpha < 1$ so $\sum_{i=0}^{\infin} \alpha^i  = \frac{\alpha}{1 -\alpha}$  
-    $\sum_{i=0}^{k-1}(\frac{1}{2})^i < \frac{\frac{1}{2}}{1 - \frac{1}{2}}$  
+    $\alpha < 1$ so $\sum_{i=0}^{\infin} \alpha^i  = \frac{1}{1 -\alpha}$  
+    $\sum_{i=0}^{k-1}(\frac{1}{2})^i < \frac{1}{1 - \frac{1}{2}}$  
     $\sum_{i=0}^{k-1}(\frac{1}{2})^i < 2$  
 
     Recursion Depth  
@@ -191,7 +191,33 @@ to a file named `answers.pdf`.
     $T(n) = 49^3T(\frac{n}{25^3}) + 49^2(\frac{n}{25^2})^{3/2}\log (\frac{n}{25^2}) + 49(\frac{n}{25})^{3/2}\log (\frac{n}{25}) + n^{3/2}\log n$  
 
     Generalized Equation  
+    $T(n) = 49^kT(\frac{n}{25^k}) + \sum_{i = 0}^{k -1}49^i(\frac{n}{25^i})^{3/2}\log(\frac{n}{25^i})$  
 
+    Recursion Depth  
+    $\frac{n}{25^k} = 1$  
+    $n = 25^k$  
+    $k = \log_{25}n$  
+
+    Substitute into Generalized Equation  
+    $T(n) = 49^{\log_{25}n}T(\frac{n}{25^{\log_{25}n}}) + \sum_{i = 0}^{{\log_{25}n} -1}49^i(\frac{n}{25^i})^{3/2}\log(\frac{n}{25^i})$  
+    $T(n) = n^{\log_{25}49}T(1) + \sum_{i = 0}^{{\log_{25}n} -1}49^i(\frac{n^{3/2}}{25^{\frac{3i}{2}}})\log(\frac{n}{25^i})$  
+    $T(n) = n^{\log_{25}49}T(1) + n^{3/2} \cdot \sum_{i = 0}^{{\log_{25}n} -1}(\frac{49}{\sqrt{25}^3})^i\log(\frac{n}{25^i})$ 
+
+    Geometric Series  
+    $\alpha < 1$ so $\sum_{i=0}^{\infin} \alpha^i  = \frac{1}{1 -\alpha}$  
+    $\log\frac{n}{25^i} \leq \log n$  
+    $\sum_{i = 0}^{{\log_{25}n} -1}(\frac{49}{\sqrt{25}^3})^i \cdot \log n$  
+    $\log n \cdot\sum_{i = 0}^{{\log_{25}n} -1}(\frac{49}{125})^i$  
+    $\sum_{i=0}^{\infin} (\frac{49}{125})^i = \frac{1}{1 - \frac{49}{125}} = \frac{125}{76} = c$  
+    $\log n \cdot c$
+
+    Substitute into Generalized Equation 2  
+    $T(n) \leq n^{\log_{25}49}T(1) + n^{3/2} \cdot \log n \cdot c$  
+    $T(n) \leq c \cdot n^{\log_{25}49} + c \cdot n^{3/2} \cdot \log n$  
+    $T(n) \leq n^{\log_{25}49} + n^{3/2} \cdot \log n$  
+    $\log_{25}49 \approx 1.21 < 3/2$  
+
+    $\boxed{T(n) \in O(n^{3/2}\log n)}$
 
 .  
 .  
