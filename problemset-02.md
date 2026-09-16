@@ -216,19 +216,37 @@ to a file named `answers.pdf`.
     $T(n) \in O(n^{\log_{25}49} + n^{3/2} \cdot \log n)$  
     $\log_{25}49 \approx 1.21 < 3/2$  
 
-    $\boxed{T(n) \in O(n^{3/2}\log n)}$
+    $\boxed{T(n) \in O(n^{3/2}\log n)}$  
+    <br>
 
-.  
-.  
-.  
-.  
-.  
-  * $T(n)=T(n-1)+2$
-.  
-.  
-.  
-.  
-.  
+
+  * $T(n)=T(n-1)+2$  
+
+    $T(n - 1) = T(n-2) + 2$  
+
+    Level 1  
+    $T(n) = (T(n-2) + 2) + 2$  
+    $T(n) = T(n-2) + 4$  
+
+    $T(n - 2) = T(n - 3) + 2$  
+
+    Level 2  
+    $T(n) = (T(n-3) + 2) + 4$  
+    $T(n) = T(n-3) + 6$  
+
+    Generalized Equation  
+    $T(n) = T(n - k) + 2k$
+
+    Recursion Depth  
+    $n - k = 1$  
+    $k = n - 1$  
+
+    Substitute into Generalized Equation  
+    $T(n) = T(n - (n - 1)) + 2(n-1)$  
+    $T(n) = $T(1) + 2n - 2$  
+
+    $\boxed{T(n) \in O(n)}$  
+    <br>  
   * $T(n)= T(n-1)+n^c$, with $c\geq 1$
 .  
 .  
