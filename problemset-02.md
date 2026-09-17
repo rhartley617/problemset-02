@@ -247,7 +247,38 @@ to a file named `answers.pdf`.
 
     $\boxed{T(n) \in O(n)}$  
     <br>  
-  * $T(n)= T(n-1)+n^c$, with $c\geq 1$
+  * $T(n)= T(n-1)+n^c$, with $c\geq 1$  
+
+    $T(n - 1) = T((n- 1) -1) + (n - 1)^c$  
+    
+    Level 1  
+    $T(n) = T((n- 1) -1) + (n - 1)^c + n^c$  
+    $T(n) = T(n -2) + (n - 1)^c + n^c$  
+
+    $T(n - 2) = T((n- 2) -1) + (n - 2)^c$  
+
+    Level 2  
+    $T(n) = T((n- 2) -1) + (n - 2)^c + (n - 1)^c + n^c$  
+    $T(n) = T(n -3) + (n - 2)^c + (n - 1)^c + n^c$  
+
+    Generalized Equation  
+    $T(n) = T(n - k) + \sum_{i = 0}^{k - 1}(n - i)^c$  
+
+    Recursion Depth  
+    $n - k = 1$  
+    $k = n - 1$  
+
+    Power Sum  
+    $\sum_{i = 0}^{n}(n - i)^c$ is in the format of:  
+    $\sum_{i = 1}^{n}i^c$  
+    $\sum_{i = 1}^{n}i^c = \sum_{i = 1}^n \in \Theta(n^{c + 1})$
+
+    Substitute into Generalized Equation  
+    $T(n) = T(n - (n - 1)) + \sum_{i = 0}^{(n-1) -1}(n - i)^c$  
+    $T(n) = T(1) + \Theta(n^{c + 1})$  
+
+    $\boxed{T(n) \in O(n^{c + 1})}$
+
 .  
 .  
 .  
