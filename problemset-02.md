@@ -345,12 +345,32 @@ to a file named `answers.pdf`.
 	* Algorithm $\mathcal{C}$ solves problems of size $n$ by dividing
       them into a subproblems of size $n/3$ and a subproblem of size
       $2n/3$, recursively solving each subproblem, and then combining
-      the solutions in $O(n^{1.1})$ time.
+      the solutions in $O(n^{1.1})$ time.  
+
+      $W_C(n) = W_C(\frac{n}{3}) + W_C(\frac{2n}{3}) + O(n^{1.1})$  
+
+      Level 0  
+      $O(n1.1)$  
+      Level 1  
+      $O[(\frac{n}{3})^{1.1} + (\frac{2n}{3})^{1.1}]$  
+      $O[n^{1.1} \cdot (\frac{1}{3})^{1.1} + (\frac{2}{3})^{1.1}]$
+
+      $[(\frac{1}{3})^{1.1} + (\frac{2}{3})^{1.1}] < 1$  
+
+      Root Dominated  
+      $W_C(n) \in O(n^{1.1})$
+
+
 
     What is the work and span of these algorithms? For the span, just
     assume that it is the same as the work to combine solutions
     (i.e. the non-recursive quantity).
-    Which algorithm would you choose? Why?
+    Which algorithm would you choose? Why?  
+    $\boxed{W_A(n) \in \Theta(n^2), S_A(n) \in \Theta(n^2)}$  
+    $\boxed{W_B \in \Theta(n\log n), S_B \in \Theta(n\log n)}$  
+    $\boxed{W_C(n) \in O(n^{1.1}), S_C(n) \in O(n^{1.1})}$  
+
+    $\boxed{\text{Algorithm B has the lowest work and span of the 3, so I'd choose that one.}}$
 
 .  
 .  
