@@ -321,10 +321,10 @@ to a file named `answers.pdf`.
       two subproblems of one fifth of the input size, recursively
       solving each subproblem, and then combining the solutions in quadratic time.  
 
-      $W_A(n) = W_A(\frac{n}{5}) + \Theta(n^2)$  
-      $a = 1, b = 5, d = 2$  
+      $W_A(n) = 2W_A(\frac{n}{5}) + \Theta(n^2)$  
+      $a = 2, b = 5, d = 2$  
       $a < b^d$  
-      $1 < 5^2$
+      $2 < 5^2$
       Root Dominated  
       $W_A(n) \in \Theta(n^2)$
 	  
@@ -370,7 +370,16 @@ to a file named `answers.pdf`.
     $\boxed{W_B \in \Theta(n\log n), S_B \in \Theta(n\log n)}$  
     $\boxed{W_C(n) \in O(n^{1.1}), S_C(n) \in O(n^{1.1})}$  
 
-    $\boxed{\text{Algorithm B has the lowest work and span of the 3, so I'd choose that one.}}$
+    $
+    \boxed{
+    \begin{aligned}
+    &\text{Algorithm B grows more slowly than the other two, so I'd choose that one.} \\
+    &\text{One caveat is that we only know the upper bound for Algorithm C, the actual}\\
+    &\text{work and span for Algorithm C could be lower.}\\
+    &\text{Based on the information we have, however, Algorithm B is the best choice.}\\
+    \end{aligned}
+    }
+$
 
 .  
 .  
