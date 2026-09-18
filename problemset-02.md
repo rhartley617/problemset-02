@@ -418,11 +418,22 @@ to a file named `answers.pdf`.
 	* Algorithm $\mathcal{C}$ solves problems of size $n$ by dividing
       them into nine subproblems of size $n/3$, recursively solving
       each subproblem, and then combining the solutions in $O(n^2)$
-      time.
+      time.  
+      $W_C(n) = 9W_B(\frac{n}{3}) + O(n^2)$
+
+      Master Method  
+      $W(n) = aW(\frac{n}{b}) + n^c$  
+      $a = 9, b =3, c = 2$  
+      $\log_3 9 = 2$  
+      $W_C(n) \in O(n^2\log n)$  
 
     What is the work and span of these algorithms? For the span, just
     assume that it is the same as the work to combine solutions (i.e.,
-    the non-recursive quantity). Which algorithm would you choose? Why?
+    the non-recursive quantity). Which algorithm would you choose? Why?  
+
+    $\boxed{W_A(n) \in \Theta(n^{\log_2 5}), S_A(n) \in \Theta(n)}$  
+    $\boxed{W_B(n) \in \Theta(2^n), S_B(n) \in \Theta(2^n)}$  
+    $\boxed{W_C(n) \in O(n^2\log n), S_C(n) \in O(n^2)}$ 
 
 .  
 .  
