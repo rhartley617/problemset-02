@@ -278,19 +278,42 @@ to a file named `answers.pdf`.
     $T(n) = T(1) + \Theta(n^{c + 1})$  
 
     $\boxed{T(n) \in O(n^{c + 1})}$
+<br>
 
-.  
-.  
-.  
-.  
-.  
-  * $T(n)=T(\sqrt{n})+1$
-.  
-.  
-.  
-.  
-.  
+  * $T(n)=T(\sqrt{n})+1$  
 
+    $T(n^{\frac{1}{2}}) = T((n^{\frac{1}{2}})^{\frac{1}{2}}) + 1$  
+    Level 1  
+    $T(n) = [T((n^{\frac{1}{2}})^{\frac{1}{2}}) + 1] + 1$  
+    $T(n) = T(n^{\frac{1}{4}}) + 1 + 1$  
+
+    $T(n^{\frac{1}{4}}) = T((n^{\frac{1}{4}})^{\frac{1}{2}}) + 1$  
+
+    Level 2  
+    $T(n) = [T((n^{\frac{1}{4}})^{\frac{1}{2}}) + 1] + 1 + 1$  
+    $T(n) = T(n^{\frac{1}{8}}) + 1 + 1 + 1$  
+
+    Generalized Equation  
+    $T(n) = T(n^{\frac{1}{2^k}}) + \sum_{i = 0}^{k - 1} 1$  
+    $T(n) = T(n^{\frac{1}{2^k}}) + k$
+
+    Recursion Depth  
+    $n^{\frac{1}{2^k}} \leq 2$  
+    $\lg (n^{\frac{1}{2^k}}) \leq \lg (2)$  
+    $\frac{1}{2^k} \cdot \lg n \leq 1$  
+    $\lg n \leq 2^k$  
+    $\lg \lg n \leq k$
+
+    Substitute into Generalized Equation  
+    $T(n) = T(n^{\frac{1}{2^{\lg \lg n}}}) + \lg \lg n$  
+    $T(n) = T(n^{\frac{1}{\lg n}}) + \lg \lg n$  
+    $n = 2^{\lg n}$  
+    $T(n) = T({(2^{\\lg n}})^{\frac{1}{\lg n}}) + \lg \lg n$  
+    $T(n) = T(2) + \lg \lg n$  
+
+    $\boxed{T(n) \in O(\lg \lg n)}$
+    <br>
+  
 
 3. Suppose that for a given task you are choosing between the following three algorithms:
 
