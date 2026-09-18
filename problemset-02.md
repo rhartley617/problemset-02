@@ -374,28 +374,46 @@ to a file named `answers.pdf`.
     \boxed{
     \begin{aligned}
     &\text{Algorithm B grows more slowly than the other two, so I'd choose that one.} \\
-    &\text{One caveat is that we only know the upper bound for Algorithm C, the actual}\\
-    &\text{work and span for Algorithm C could be lower.}\\
+    &\text{One caveat is that we only know the upper bound for Algorithm C, so the}\\
+    &\text{ actual work and span for Algorithm C could be lower.}\\
     &\text{Based on the information we have, however, Algorithm B is the best choice.}\\
     \end{aligned}
     }
-$
-
-.  
-.  
-.  
-.  
-.  
-
+    $
+    <br>
 4. Suppose that for a given task you are choosing between the following three algorithms:
 
 	* Algorithm $\mathcal{A}$ solves problems by dividing them into
       five subproblems of half the size, recursively solving each
-      subproblem, and then combining the solutions in linear time.
+      subproblem, and then combining the solutions in linear time.  
+      $W_A(n) = 5W(\frac{n}{2}) + \Theta(n)$  
+      Master Method  
+      $W(n) = aW(\frac{n}{b}) + n^c$  
+      $a = 5, b =2, c = 1$  
+      $\log_2 5 > 1$  
+      $W_A(n) \in \Theta(n^{\log_2 5})$
+
 	  
 	* Algorithm $\mathcal{B}$ solves problems of size $n$ by
       recursively solving two subproblems of size $n-1$ and then
-      combining the solutions in constant time.
+      combining the solutions in constant time.  
+      $W_B(n) = 2W(n -  1) + \Theta(1)$  
+
+      Generalized Equation  
+      $W_B(n) = 2^kW_B(n -  k) + c \cdot\sum_{i = 0}^{k - 1}2^i$  
+
+      Substitute into Generalized Equation  
+      $W_B(n) = 2^{n - 1}W_B(n -  (n - 1)) + c \cdot\sum_{i = 0}^{(n - 1) - 1}2^i$  
+
+      Geometric Series  
+      $\sum_{i = 0}^{n - 2}2^i < \frac{2}{2 -1} \cdot 2^{n - 2} = 2^{n - 1} = O(2^n)$  
+
+      Substitute into Generalized Equation  
+      $W_B(n) = 2^{n - 1}W_B(1) + c \cdot O(2^n)$  
+      $W_B(1) = \Theta(1)$  
+
+      $W_B(n) \in \Theta(2^n)$
+
 		
 	* Algorithm $\mathcal{C}$ solves problems of size $n$ by dividing
       them into nine subproblems of size $n/3$, recursively solving
