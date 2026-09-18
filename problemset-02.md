@@ -367,7 +367,7 @@ to a file named `answers.pdf`.
     (i.e. the non-recursive quantity).
     Which algorithm would you choose? Why?  
     $\boxed{W_A(n) \in \Theta(n^2), S_A(n) \in \Theta(n^2)}$  
-    $\boxed{W_B \in \Theta(n\log n), S_B \in \Theta(n\log n)}$  
+    $\boxed{W_B \in \Theta(n\log n), S_B \in \Theta(\log n)}$  
     $\boxed{W_C(n) \in O(n^{1.1}), S_C(n) \in O(n^{1.1})}$  
 
     $
@@ -375,7 +375,7 @@ to a file named `answers.pdf`.
     \begin{aligned}
     &\text{Algorithm B grows more slowly than the other two, so I'd choose that one.} \\
     &\text{One caveat is that we only know the upper bound for Algorithm C, so the}\\
-    &\text{ actual work and span for Algorithm C could be lower.}\\
+    &\text{actual work and span for Algorithm C could be lower.}\\
     &\text{Based on the information we have, however, Algorithm B is the best choice.}\\
     \end{aligned}
     }
@@ -419,7 +419,7 @@ to a file named `answers.pdf`.
       them into nine subproblems of size $n/3$, recursively solving
       each subproblem, and then combining the solutions in $O(n^2)$
       time.  
-      $W_C(n) = 9W_B(\frac{n}{3}) + O(n^2)$
+      $W_C(n) = 9W_C(\frac{n}{3}) + O(n^2)$
 
       Master Method  
       $W(n) = aW(\frac{n}{b}) + n^c$  
@@ -432,14 +432,17 @@ to a file named `answers.pdf`.
     the non-recursive quantity). Which algorithm would you choose? Why?  
 
     $\boxed{W_A(n) \in \Theta(n^{\log_2 5}), S_A(n) \in \Theta(n)}$  
-    $\boxed{W_B(n) \in \Theta(2^n), S_B(n) \in \Theta(2^n)}$  
-    $\boxed{W_C(n) \in O(n^2\log n), S_C(n) \in O(n^2)}$ 
+    $\boxed{W_B(n) \in \Theta(2^n), S_B(n) \in \Theta(1)}$  
+    $\boxed{W_C(n) \in O(n^2\log n), S_C(n) \in O(n^2)}$  
+    $
+    \boxed{
+    \begin{aligned}
+    &\text{The work for algorithm C grows more slowly than the other two, so I'd choose that one.}
+    \end{aligned}
+    }
+    $
+    <br>
 
-.  
-.  
-.  
-.  
-.  
 
 
 5. In Module 2 we discussed two algoriths for integer multiplication. The
