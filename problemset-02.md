@@ -319,11 +319,28 @@ to a file named `answers.pdf`.
 
 	* Algorithm $\mathcal{A}$ solves problems by dividing them into
       two subproblems of one fifth of the input size, recursively
-      solving each subproblem, and then combining the solutions in quadratic time.
+      solving each subproblem, and then combining the solutions in quadratic time.  
+
+      $W_A(n) = W_A(\frac{n}{5}) + \Theta(n^2)$  
+      $a = 1, b = 5, d = 2$  
+      $a < b^d$  
+      $1 < 5^2$
+      Root Dominated  
+      $W_A(n) \in \Theta(n^2)$
 	  
 	* Algorithm $\mathcal{B}$ solves problems of size $n$ by
       recursively one subproblems of size $n-1$ and then
-      combining the solutions in logarithmic time.
+      combining the solutions in logarithmic time.  
+
+      $W_B(n) = W_B(n -1) + \Theta(\log n)$  
+
+      Expand  
+      $W_B(n) = \log n + \log(n -1) + \log(n -2) \dots \log(2)$  
+      $\log a + \log b = \log(ab)$  
+      $W_B(n) = \log(n!)$  
+
+      $W_B \in \Theta(n\log n)$
+
 		
 	* Algorithm $\mathcal{C}$ solves problems of size $n$ by dividing
       them into a subproblems of size $n/3$ and a subproblem of size
