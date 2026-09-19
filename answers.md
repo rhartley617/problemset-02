@@ -31,7 +31,7 @@ Place all written answers from `problemset-02.md` here for easier grading.
       $\log n! \geq (\frac{1}{2} \cdot n) \cdot \log (\frac{n}{2})$   
       $\log n! \geq (\frac{1}{2} \cdot n) \cdot (\log n - \log 2)$  
       $\log n! \geq (\frac{1}{2} \cdot n) \cdot (\log n) \cdot ( 1 - \frac{\log 2}{\log n})$  
-      $\frac{\log 2}{\log n} \rightarrow 0$ as $n \rightarrow \infin$   
+      $\frac{\log 2}{\log n} \rightarrow 0$ as $n \rightarrow \infty$   
       $\log n! \geq (\frac{1}{2} \cdot n) \cdot (\log n) \cdot ( 1 - 0)$  
       $\log n! \geq (\frac{1}{2}) \cdot (n \cdot (\log n))$  
       and so $\log n! \in \Omega(n \log n)$  
@@ -101,7 +101,7 @@ Place all written answers from `problemset-02.md` here for easier grading.
     $T(n) = 6^k T(\frac{n}{4^k}) + n \cdot \sum_{i=0}^{k-1}(\frac{6}{4})^i$  
 
     Geometric Series  
-     $\alpha > 1$ so  $ \sum_{i=0}^n \alpha^i  \leq \frac{\alpha}{\alpha - 1}\cdot\alpha^n$  
+    $\alpha > 1$ so  $\sum_{i=0}^n \alpha^i  \leq \frac{\alpha}{\alpha - 1}\cdot\alpha^n$  
     $\sum_{i=0}^{k-1}(\frac{6}{4})^i \leq (\frac{\frac{6}{4}}{\frac{6}{4} - 1}) \cdot (\frac{6}{4})^{k - 1}$  
     $\sum_{i=0}^{k-1}(\frac{6}{4})^i \leq 3 \cdot (\frac{6}{4})^{k - 1}$  
 
@@ -128,7 +128,7 @@ Place all written answers from `problemset-02.md` here for easier grading.
   Brick Method  
   $T(n)=aT\left(\frac{n}{b}\right)+n^d$  
   $a = 7, b =7, d = 1$  
-  $a = b^d$ ~ $ balanced: \ \  \Theta(n^d\log n)$  
+  $a = b^d$ ~ balanced: $\Theta(n^d \log n)$  
     
      $\boxed{T(n) \in O(n\log n)}$  
     <br>
@@ -137,7 +137,7 @@ Place all written answers from `problemset-02.md` here for easier grading.
   Brick Method  
   $T(n)=aT\left(\frac{n}{b}\right)+n^d$  
   $a = 9, b = 4, d = 2$  
-  $a < b^d$ ~ $ root \  dominated: \ \  \Theta(n^d)$ 
+  $a < b^d$ — root dominated: $\Theta(n^d)$ 
 
     $\boxed{T(n) \in O(n^2)}$  
   <br>
@@ -162,7 +162,7 @@ Place all written answers from `problemset-02.md` here for easier grading.
     $T(n) = 4^kT(\frac{n}{2^k}) + n^3 \cdot \sum_{i=0}^{k-1}(\frac{1}{2})^i$  
 
     Geometric Series  
-    $\alpha < 1$ so $\sum_{i=0}^{\infin} \alpha^i  = \frac{1}{1 -\alpha}$  
+    $\alpha < 1$ so $\sum_{i=0}^{\infty} \alpha^i  = \frac{1}{1 -\alpha}$  
     $\sum_{i=0}^{k-1}(\frac{1}{2})^i < \frac{1}{1 - \frac{1}{2}}$  
     $\sum_{i=0}^{k-1}(\frac{1}{2})^i < 2$  
 
@@ -208,11 +208,11 @@ Place all written answers from `problemset-02.md` here for easier grading.
     $T(n) = n^{\log_{25}49}T(1) + n^{3/2} \cdot \sum_{i = 0}^{{\log_{25}n} -1}(\frac{49}{\sqrt{25}^3})^i\log(\frac{n}{25^i})$ 
 
     Geometric Series  
-    $\alpha < 1$ so $\sum_{i=0}^{\infin} \alpha^i  = \frac{1}{1 -\alpha}$  
+    $\alpha < 1$ so $\sum_{i=0}^{\infty} \alpha^i  = \frac{1}{1 -\alpha}$  
     $\log\frac{n}{25^i} \leq \log n$  
     $\sum_{i = 0}^{{\log_{25}n} -1}(\frac{49}{\sqrt{25}^3})^i \cdot \log n$  
     $\log n \cdot\sum_{i = 0}^{{\log_{25}n} -1}(\frac{49}{125})^i$  
-    $\sum_{i=0}^{\infin} (\frac{49}{125})^i = \frac{1}{1 - \frac{49}{125}} = \frac{125}{76} = c$  
+    $\sum_{i=0}^{\infty} (\frac{49}{125})^i = \frac{1}{1 - \frac{49}{125}} = \frac{125}{76} = c$  
     $\log n \cdot c$
 
     Substitute into Generalized Equation 2  
@@ -247,7 +247,7 @@ Place all written answers from `problemset-02.md` here for easier grading.
 
     Substitute into Generalized Equation  
     $T(n) = T(n - (n - 1)) + 2(n-1)$  
-    $T(n) = $T(1) + 2n - 2$  
+    $T(n) = T(1) + 2n - 2$  
 
     $\boxed{T(n) \in O(n)}$  
     <br>  
@@ -461,28 +461,22 @@ Place all written answers from `problemset-02.md` here for easier grading.
     | $10^{512}$|  1452.304 |      341.128 |
     | $10^{1024}$| 5467.930 |     1016.944 |
 
-    The work for the quadratic multiplication algorithm is:  
-    $W_Q(n) \in O(n^2)$
-
-    The work for the  Karatsaba-Ofman algorithm is:  
-    $W_{KO}(n) \in O(n^{\log_2 3})$  
-
-
     In the tests, the exponent of the decimal input is doubled at each step.
-    Since the number of  
-    bits in $10^k$ is proportional to $k$, this
-    approximately doubles the input size at each step.
+    Since the number of bits in $10^k$  
+    is proportional to $k$, this
+    approximately doubles the input size in bits at each step.
 
-    When the n value doubles, we get:  
+    When the input bit-length doubles, we expect:
 
-    $W_Q(2) = 2^2 = 4$  
+    $\frac{W_Q(2n)}{W_Q(n)} = \frac{(2n)^2}{n^2} = 2^2 = 4$
 
-    $W_{KO}(2) = 2^{\log_2 3} = 3$  
+    $\frac{W_{KO}(2n)}{W_{KO}(n)} = \frac{(2n)^{\log_2 3}}{n^{\log_2 3}} = 2^{\log_2 3} = 3$
 
-    Therefore we would expect to see the time to complete for he quadratic  multiplication  
-    algorithm to take 4 times as long with each descending row, and the Karatsaba-Ofman  
-    algorithm to take 3 times as long with each descending row, which is what we see  
-    as $n$ gets larger.
-
+    Therefore, we would expect the quadratic multiplication algorithm to take
+    approximately 4 times as long  
+    when the input size doubles, while the
+    Karatsuba-Ofman algorithm should take approximately 3 times as long.  
+    For the larger inputs, this is approximately what we observe in the
+    measured running times.
 
 
