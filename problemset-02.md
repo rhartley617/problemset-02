@@ -41,8 +41,15 @@ to a file named `answers.pdf`.
 
       **Answer** 
       
-      Since $\log n! \in O(n \log n)$ and $\log n! \in \Omega(n \log n)$  
-      $\log n! \in \Theta(n \log n)$
+      $
+      \boxed{
+      \begin{aligned}
+      &\text{Since } \log n! \in O(n \log n)
+      \text{ and } \log n! \in \Omega(n \log n) \\
+      &\log n! \in \Theta(n \log n)
+      \end{aligned}
+      }
+      $
      <br>  
 
 2. Derive asymptotic upper bounds for each recurrence below, using a
