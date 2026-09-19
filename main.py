@@ -4,6 +4,7 @@ See problemset-02.pdf for details.
 """
 import time
 import tabulate
+import statistics
 
 class BinaryNumber:
     """ done """
@@ -134,5 +135,68 @@ def print_results(results):
             floatfmt=".3f",
             tablefmt="github"))
     
-    
+def test_running_times():
+    bit_sizes = [8, 16, 32, 64, 128, 256]
+
+    results = []
+
+    previous_qtime = None
+    previous_subqtime = None
+
+    for bits in bit_sizes:
+        n = (1 << bits) - 1
+
+        x = BinaryNumber(n)
+        y = BinaryNumber(n)
+
+        quadratic_times = []
+        subquadratic_times = []
+
+        for _ in range(5):
+            quadratic_times.append(
+                time_multiply(x, y, quadratic_multiply)
+            )
+
+            subquadratic_times.append(
+                time_multiply(x, y, subquadratic_multiply)
+            )
+
+        qtime = statistics.median(quadratic_times)
+        subqtime = statistics.median(subquadratic_times)
+
+        if previous_qtime is None:
+            qratio = "-"
+            subqratio = "-"
+        else:
+            qratio = qtime / previous_qtime
+            subqratio = subqtime / previous_subqtime
+
+        results.append(
+            (bits, qtime, qratio, subqtime, subqratio)
+        )
+
+        previous_qtime = qtime
+        previous_subqtime = subqtime
+
+    print("\nEmpirical Running Times")
+    print(
+        tabulate.tabulate(
+            results,
+            headers=[
+                "bits",
+                "quadratic (ms)",
+                "growth",
+                "subquadratic (ms)",
+                "growth"
+            ],
+            floatfmt=".3f",
+            tablefmt="github"
+        )
+    )
+
+# Only run directly from executing main.py, not from test_main.py, etc.
+# Enter python main.py to run the tests and see the timing results.
+if __name__ == "__main__":
+    test_multiply()
+    test_running_times()
 
