@@ -446,17 +446,43 @@ Place all written answers from `problemset-02.md` here for easier grading.
     <br> 
  
 5. (4 pts) **Integer Multiplication Timing Results**  
-  
-| $n$       | quadratic | subquadratic |
-|-----------|----------:|-------------:|
-| $10^1$    |     0.031 |        0.024 |
-| $10^2$    |     0.045 |        0.170 |
-| $10^4$    |     0.113 |        0.156 |
-| $10^8$    |     0.476 |        0.478 |
-| $10^{16}$ |     1.428 |        1.247 |
-| $10^{32}$ |     5.849 |        4.016 |
-| $10^{64}$ |    23.423 |       13.286 |
-| $10^{128}$|    91.620 |       41.598 |
-| $10^{256}$|   373.355 |      116.666 |
-| $10^{512}$|  1452.304 |      341.128 |
-| $10^{1024}$| 5467.930 |     1016.944 |
+
+    | $n$       | quadratic | subquadratic |
+    |-----------|----------:|-------------:|
+    | $10^1$    |     0.031 |        0.024 |
+    | $10^2$    |     0.045 |        0.170 |
+    | $10^4$    |     0.113 |        0.156 |
+    | $10^8$    |     0.476 |        0.478 |
+    | $10^{16}$ |     1.428 |        1.247 |
+    | $10^{32}$ |     5.849 |        4.016 |
+    | $10^{64}$ |    23.423 |       13.286 |
+    | $10^{128}$|    91.620 |       41.598 |
+    | $10^{256}$|   373.355 |      116.666 |
+    | $10^{512}$|  1452.304 |      341.128 |
+    | $10^{1024}$| 5467.930 |     1016.944 |
+
+    The work for the quadratic multiplication algorithm is:  
+    $W_Q(n) \in O(n^2)$
+
+    The work for the  Karatsaba-Ofman algorithm is:  
+    $W_{KO}(n) \in O(n^{\log_2 3})$  
+
+
+    In the tests, the exponent of the decimal input is doubled at each step.
+    Since the number of  
+    bits in $10^k$ is proportional to $k$, this
+    approximately doubles the input size at each step.
+
+    When the n value doubles, we get:  
+
+    $W_Q(2) = 2^2 = 4$  
+
+    $W_{KO}(2) = 2^{\log_2 3} = 3$  
+
+    Therefore we would expect to see the time to complete for he quadratic  multiplication  
+    algorithm to take 4 times as long with each descending row, and the Karatsaba-Ofman  
+    algorithm to take 3 times as long with each descending row, which is what we see  
+    as $n$ gets larger.
+
+
+
