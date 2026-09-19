@@ -119,10 +119,13 @@ def time_multiply(x, y, f):
     
 def compare_multiply():
     res = []
-    for n in [10,100,1000,10000,100000,1000000,10000000,100000000,1000000000]:
+    # for n in [10,100,1000,10000,100000,1000000,10000000,100000000,1000000000]:
+    for exponent in [1, 2, 4, 8, 16, 32, 64, 128, 256, 512, 1024]:
+        n = 10 ** exponent
         qtime = time_multiply(BinaryNumber(n), BinaryNumber(n), quadratic_multiply)
         subqtime = time_multiply(BinaryNumber(n), BinaryNumber(n), subquadratic_multiply)        
-        res.append((n, qtime, subqtime))
+        # res.append((n, qtime, subqtime))
+        res.append((f"10^{exponent}", qtime, subqtime))
     print_results(res)
 
 
